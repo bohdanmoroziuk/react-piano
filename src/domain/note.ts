@@ -66,3 +66,17 @@ export const fromMidi = (midi: MidiValue): Note => {
 
   return { midi, octave, pitch, type, index };
 };
+
+type NotesGeneratorSettings = {
+  fromNote?: MidiValue;
+  toNote?: MidiValue;
+};
+
+export const generateNotes = ({
+  fromNote = LOWER_NOTE,
+  toNote = HIGHER_NOTE
+}: NotesGeneratorSettings): Note[] => {
+  return Array(toNote - fromNote + 1)
+    .fill(0)
+    .map((_, index) => fromMidi(fromNote + index));
+};
