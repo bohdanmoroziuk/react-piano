@@ -1,22 +1,35 @@
-import { notes, Note } from 'domain/note';
+import { Note } from 'domain/note';
 import { selectKey } from 'domain/keyboard';
+import { PlayNoteHandler, StopNoteHandler } from 'adapters/Soundfont/useSoundfont';
 
 import KeyboardKey from 'components/KeyboardKey';
 
 import styles from 'components/Keyboard/Keyboard.module.css';
 
-const renderNote = ({ midi, type, index, octave }: Note) => {
-  const label = selectKey(octave, index);
+export interface KeyboardProps {
+  notes: Note[];
+  loading: boolean;
+  play: PlayNoteHandler;
+  stop: StopNoteHandler;
+}
 
-  return (
-    <KeyboardKey key={midi} type={type} label={label} />
-  );
-};
-
-export default function Keyboard() {
+export default function Keyboard({ notes, loading, play, stop }: KeyboardProps) {
   return (
     <div className={styles.keyboard}>
-      {notes.map(renderNote)}
+      {notes.map(({ midi, type, index, octave }: Note) => {
+        const label = selectKey(octave, index);
+
+        return (
+          <KeyboardKey
+            key={midi}
+            type={type}
+            label={label}
+            disabled={loading}
+            onDown={() => play(midi)}
+            onUp={() => stop(midi)}
+          />
+        );
+      })}
     </div>
   );
 }
