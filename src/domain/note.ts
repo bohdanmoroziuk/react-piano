@@ -75,8 +75,10 @@ type NotesGeneratorSettings = {
 export const generateNotes = ({
   fromNote = LOWER_NOTE,
   toNote = HIGHER_NOTE
-}: NotesGeneratorSettings): Note[] => {
+}: NotesGeneratorSettings = {}): Note[] => {
   return Array(toNote - fromNote + 1)
     .fill(0)
     .map((_, index) => fromMidi(fromNote + index));
 };
+
+export const notes = generateNotes();
