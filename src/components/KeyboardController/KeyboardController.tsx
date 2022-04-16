@@ -1,17 +1,26 @@
+import { useEffect } from 'react';
+
 import { notes } from 'domain/note';
 
 import useOnMount from 'hooks/useOnMount';
 import useAudioContext from 'hooks/useAudioContext';
 import useSoundfont from 'adapters/Soundfont/useSoundfont';
+import { useInstrument } from 'contexts/instrument';
 
 import Keyboard from 'components/Keyboard/Keyboard';
 
 export default function KeyBoardController() {
   const [AudioContext] = useAudioContext();
 
-  const { loading, play, stop, load } = useSoundfont({ AudioContext } as { AudioContext: AudioContextType });
+  const { instrument } = useInstrument();
 
-  useOnMount(() => { load(); });
+  const { current, loading, play, stop, load } = useSoundfont({ AudioContext } as { AudioContext: AudioContextType });
+
+  useEffect(() => {
+    if (!loading && instrument !== current) {
+      load(instrument);
+    }
+  }, [current, instrument, loading, load]);
 
   return (
     <Keyboard
