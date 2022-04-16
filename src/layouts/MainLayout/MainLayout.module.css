@@ -1,5 +1,5 @@
 .content {
-  --offset: calc(var(--footer-height) + var(--logo-height));
+  --offset: var(--logo-height);
   min-height: calc(100vh - var(--offset));
 
   display: flex;
