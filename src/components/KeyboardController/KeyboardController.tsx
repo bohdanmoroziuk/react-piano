@@ -2,7 +2,6 @@ import { useEffect } from 'react';
 
 import { notes } from 'domain/note';
 
-import useOnMount from 'hooks/useOnMount';
 import useAudioContext from 'hooks/useAudioContext';
 import useSoundfont from 'adapters/Soundfont/useSoundfont';
 import { useInstrument } from 'contexts/instrument';
@@ -31,4 +30,3 @@ export default function KeyBoardController() {
     />
   );  
 }
-
