@@ -21,8 +21,8 @@
   width: var(--white-key-width);
   height: var(--white-key-height);
   padding-top: var(--white-key-padding);
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  color: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
   margin-right: -1px;
   z-index: 1;
 }
@@ -32,6 +32,7 @@
   width: var(--black-key-width);
   height: var(--black-key-height);
   padding-top: var(--black-key-padding);
+  border-top: 1px solid var(--secondary-color);
   background-color: #111;
   color: white;
   margin: 0 calc(-0.5 * calc(var(--black-key-width)));
@@ -40,7 +41,7 @@
 
 .natural:active,
 .natural.is-active {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgba(0, 0, 0, 0.3);
 }
 
 .sharp:active,

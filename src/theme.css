@@ -1,0 +1,9 @@
+[data-theme='white'] {
+  --primary-color: white;
+  --secondary-color: rgba(0, 0, 0, 0.8);
+}
+
+[data-theme='dark'] {
+  --primary-color: rgba(0, 0, 0, 0.8);
+  --secondary-color: white;
+}

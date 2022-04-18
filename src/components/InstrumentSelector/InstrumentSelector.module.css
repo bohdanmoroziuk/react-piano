@@ -7,9 +7,9 @@
   margin: 1.5rem auto 0;
   padding: 0.4rem 1rem;
 
-  color: #495057;
-  background-color: #fff;
+  color: var(--secondary-color);
+  background-color: var(--primary-color);
   background-clip: padding-box;
-  border: 1px solid #ced4da;
+  border: 1px solid var(--secondary-color);
   border-radius: 0.25rem;
 }
