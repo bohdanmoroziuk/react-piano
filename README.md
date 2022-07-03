@@ -1,8 +1,10 @@
 # React Piano
 
-<img src="./react-piano.png" alt="React Piano" />
+> A virtual piano keyboard with a list of instruments.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Preview
+
+<img src="./react-piano.png" alt="React Piano" />
 
 ## Available Scripts
 
